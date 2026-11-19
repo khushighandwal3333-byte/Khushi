@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khushi | A Little About Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#f8f4ec; --paper:#fffdf9; --ink:#332a27; --muted:#75655f; --rose:#d9a69b; --rose-dark:#a56f64; --line:#e8ded4; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif; line-height:1.65; }
+    a { color:inherit; text-decoration:none; }
+    .nav { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; padding:18px 7%; background:rgba(248,244,236,.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+    .brand { font-family:'Playfair Display',serif; font-size:1.25rem; letter-spacing:.03em; }
+    .nav-links { display:flex; gap:26px; font-size:.88rem; color:var(--muted); }
+    .nav-links a:hover { color:var(--rose-dark); }
+    .hero { min-height:80vh; display:grid; grid-template-columns:1.1fr .9fr; gap:5%; align-items:center; padding:90px 10% 100px; overflow:hidden; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.18em; font-size:.76rem; color:var(--rose-dark); font-weight:600; }
+    h1,h2,h3 { font-family:'Playfair Display',serif; font-weight:500; line-height:1.2; }
+    h1 { font-size:clamp(3.2rem,7vw,6.5rem); margin:16px 0 22px; letter-spacing:-.04em; }
+    h1 em { color:var(--rose-dark); font-weight:500; }
+    .hero p { max-width:530px; font-size:1.08rem; color:var(--muted); }
+    .hero-cta { display:inline-block; margin-top:25px; padding:12px 23px; border-radius:30px; background:var(--ink); color:#fff; font-size:.9rem; transition:transform .2s,background .2s; }
+    .hero-cta:hover { transform:translateY(-3px); background:var(--rose-dark); }
+    .portrait-wrap { position:relative; width:min(100%,390px); justify-self:center; }
+    .portrait { min-height:440px; border-radius:48% 48% 18px 18px; background:linear-gradient(145deg,#ead4ca,#c58f82); display:flex; align-items:center; justify-content:center; text-align:center; padding:25px; color:#fff8f1; font-family:'Playfair Display',serif; font-size:1.6rem; box-shadow:18px 22px 0 rgba(217,166,155,.18); }
+    .portrait small { display:block; font-family:'DM Sans',sans-serif; font-size:.78rem; letter-spacing:.1em; margin-top:8px; opacity:.85; }
+    .sparkle { position:absolute; right:-22px; top:15px; color:var(--rose-dark); font-size:2.5rem; }
+    section { padding:90px 9%; }
+    .section-head { text-align:center; max-width:680px; margin:0 auto 48px; }
+    .section-head h2 { font-size:clamp(2.4rem,4vw,3.6rem); margin:12px 0; }
+    .section-head p { color:var(--muted); }
+    #hobbies { background:var(--paper); }
+    .hobby-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .hobby-card { background:var(--cream); border:1px solid var(--line); border-radius:18px; padding:27px 22px 30px; transition:transform .25s,box-shadow .25s; }
+    .hobby-card:hover { transform:translateY(-6px); box-shadow:0 14px 30px rgba(65,42,35,.08); }
+    .hobby-icon { font-size:2.1rem; margin-bottom:15px; }
+    .hobby-card h3 { font-size:1.5rem; margin:0 0 9px; }
+    .hobby-card p { font-size:.93rem; color:var(--muted); margin:0; }
+    .interest-layout { display:grid; grid-template-columns:1fr 1fr; gap:25px; }
+    .interest-card { padding:38px; border-radius:22px; background:#eee5da; min-height:290px; position:relative; overflow:hidden; }
+    .interest-card:nth-child(2) { background:#ead8d1; }
+    .interest-card h3 { font-size:2.2rem; margin:10px 0 14px; }
+    .interest-card p { max-width:460px; color:#65564f; }
+    .interest-card .symbol { font-size:2.3rem; opacity:.75; }
+    #contact { background:var(--paper); }
+    .contact-box { max-width:700px; margin:0 auto; padding:40px; border:1px solid var(--line); border-radius:24px; background:var(--cream); }
+    .contact-box h2 { text-align:center; font-size:2.7rem; margin:0 0 8px; }
+    .contact-box > p { text-align:center; color:var(--muted); margin:0 0 28px; }
+    form { display:grid; gap:16px; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    input,textarea { width:100%; border:1px solid #d9cec4; border-radius:12px; background:#fffdf9; padding:14px 15px; font:inherit; color:var(--ink); outline:none; }
+    input:focus,textarea:focus { border-color:var(--rose-dark); box-shadow:0 0 0 3px rgba(165,111,100,.12); }
+    textarea { min-height:135px; resize:vertical; }
+    button { border:0; border-radius:30px; padding:14px 22px; background:var(--ink); color:white; font:inherit; cursor:pointer; transition:background .2s,transform .2s; justify-self:center; }
+    button:hover { background:var(--rose-dark); transform:translateY(-2px); }
+    #form-note { text-align:center; font-size:.88rem; color:var(--rose-dark); min-height:1.3em; }
+    footer { text-align:center; padding:25px; color:var(--muted); font-size:.85rem; }
+    .fade-in { animation:fadeUp .8s ease both; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to {opacity:1; transform:translateY(0);} }
+    @media (max-width:850px) { .hero { grid-template-columns:1fr; text-align:center; padding:70px 7%; } .hero p { margin-inline:auto; } .portrait-wrap { max-width:330px; margin-top:25px; } .portrait { min-height:350px; } .hobby-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:560px) { .nav { padding:14px 5%; flex-direction:column; gap:10px; } .nav-links { gap:16px; font-size:.8rem; } section { padding:65px 6%; } .hobby-grid,.interest-layout,.form-row { grid-template-columns:1fr; } .contact-box { padding:25px 18px; } .hobby-card { padding:22px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#home">Khushi.</a>
+    <div class="nav-links">
+      <a href="#intro">Intro</a><a href="#hobbies">Hobbies</a><a href="#interests">Interests</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <main>
+    <section class="hero" id="home">
+      <div class="fade-in" id="intro">
+        <span class="eyebrow">A little corner of my world</span>
+        <h1>Hello,<br>I'm <em>Khushi.</em></h1>
+        <p>I'm a first-year BA Journalism and Mass Communication student, curious about stories, people, creativity, and all the little things that make life interesting. This page is a small glimpse into what I enjoy and what inspires me.</p>
+        <a class="hero-cta" href="#hobbies">Get to know me&nbsp; ↘</a>
+      </div>
+      <div class="portrait-wrap fade-in">
+        <span class="sparkle">✳</span>
+        <div class="portrait">A photo of me<br><small>YOUR PHOTO CAN GO HERE</small></div>
+      </div>
+    </section>
+
+
+    <section id="hobbies">
+      <div class="section-head">
+        <span class="eyebrow">Things I love doing</span>
+        <h2>My Hobbies</h2>
+        <p>Little activities that bring me joy, keep me moving, and let me express myself.</p>
+      </div>
+      <div class="hobby-grid">
+        <article class="hobby-card"><div class="hobby-icon">🏊🏻‍♀️</div><h3>Swimming</h3><p>Swimming is my way of refreshing my mind and finding a little peace. I love the feeling of freedom in the water and how it helps me unwind while staying active.</p></article>
+        <article class="hobby-card"><div class="hobby-icon">🎤</div><h3>Singing</h3><p>Music is a lovely way to express what words sometimes can't. Whether I'm singing along to a favourite song or just humming for fun, it always lifts my mood.</p></article>
+        <article class="hobby-card"><div class="hobby-icon">🏸</div><h3>Badminton</h3><p>I enjoy the energy and friendly competition of badminton. It keeps me on my toes, challenges my reflexes, and makes staying active feel like fun.</p></article>
+        <article class="hobby-card"><div class="hobby-icon">🛼</div><h3>Skating</h3><p>Skating feels like a mix of adventure and freedom. I love the movement, the balance it takes, and the thrill of gliding while learning something new.</p></article>
+      </div>
+    </section>
+
+
+    <section id="interests">
+      <div class="section-head">
+        <span class="eyebrow">What makes me curious</span>
+        <h2>My Interests</h2>
+        <p>Some things I love exploring even when there's no particular reason—just curiosity.</p>
+      </div>
+      <div class="interest-layout">
+        <article class="interest-card"><div class="symbol">☾</div><h3>Spirituality</h3><p>I'm drawn to spirituality, questions about consciousness, self-awareness, inner peace, and the deeper meaning of life. I enjoy reflecting on the unseen, exploring different beliefs, and learning perspectives that help me understand myself and the world a little better.</p></article>
+        <article class="interest-card"><div class="symbol">✧</div><h3>Reading Books</h3><p>Books let me step into different minds, experiences, and worlds. I enjoy reading things that spark curiosity, make me reflect, introduce me to new ideas, or simply keep me turning pages because I'm immersed in a story.</p></article>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="contact-box">
+        <span class="eyebrow" style="display:block;text-align:center">Your turn</span>
+        <h2>Leave a little note.</h2>
+        <p>Have something to say? I'd love to hear from you.</p>
+        <form id="visitor-form">
+          <div class="form-row"><input type="text" name="visitorName" placeholder="Your name" aria-label="Your name" required><input type="email" name="visitorEmail" placeholder="Your email" aria-label="Your email" required></div>
+          <textarea name="visitorMessage" placeholder="Write me a message..." aria-label="Your message" required></textarea>
+          <button type="submit">Send a note ✉</button>
+          <div id="form-note" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>Made with a little curiosity & lots of heart. &nbsp;© Khushi</footer>
+  <script>
+    // This demo form is front-end only; it does not send or store messages.
+    document.getElementById('visitor-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('form-note').textContent = 'Thank you for your note! This demo form does not send messages yet.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
